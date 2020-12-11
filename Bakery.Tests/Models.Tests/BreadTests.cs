@@ -10,7 +10,8 @@ namespace Bakery.Tests
     public void BreadConstructor_InstantiateBreadObject_True()
     {
       // any necessary logic to prep for test; instantiating new classes, etc.
-      Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
+      Bread loaf1 = new Bread("rye");
+      Assert.AreEqual(typeof(Bread), loaf1.GetType());
     }
   }
 }
