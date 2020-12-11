@@ -11,6 +11,4 @@ namespace Bakery.Models
     //consturctor
     //other methods
   }
-
-  public class Pastry
 }
