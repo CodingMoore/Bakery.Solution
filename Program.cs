@@ -8,7 +8,7 @@ namespace BakeryUI
   {
     public static void Main()
     {
-      
+      WriteLine
     }
   }
 }

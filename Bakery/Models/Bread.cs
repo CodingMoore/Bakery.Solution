@@ -1,7 +1,7 @@
 using System;
 //using System.Collections.Generic; -- use for lists
 
-namespace Bakery.Models
+namespace Bread.Models
 {
   public class Bread
   {
