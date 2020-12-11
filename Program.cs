@@ -38,15 +38,15 @@ namespace BakeryUI
       {
         Console.WriteLine("Are you sure you want to make this purchase?  Type 'y' for yes or 'n' for no.");
         string confirmPurch = Console.ReadLine();
-        if (confirmPurch == "n")
-        {
-          Order();
-        }
-        else if (confirmPurch == "y")
+        if (confirmPurch == "y")
         {
           Console.WriteLine("Your pretend bread order has been purchase with pretend money!");
           Console.WriteLine("We hope that you enjoy filling your pretend stomach!");
           Main();
+        }
+        else if (confirmPurch == "n")
+        {
+          Order();
         }
         else
         {
@@ -78,7 +78,7 @@ namespace BakeryUI
       }
       else if (custInput == "restart")
       {
-        Main();
+        Restart();
       }
       else
       {
@@ -132,7 +132,7 @@ namespace BakeryUI
       }
     }
 
-public static PastryList()
+    public static PastryList()
     {
       Console.WriteLine("To add Crossants, type 'crossant'.");
       Console.WriteLine("To add Baklava, type 'baklava'.");
@@ -156,7 +156,7 @@ public static PastryList()
 
     public static PastryNumber()
     {
-      Console.WriteLine("How many loaves would you like?")
+      Console.WriteLine("How many pastries would you like?")
       Limit10();
       Back();
       string pastryCount = Console.ReadLine();
@@ -174,6 +174,25 @@ public static PastryList()
       {
         Invalid();
         PastryNumber();
+      }
+    }
+
+    public static Restart()
+    {
+      Console.WriteLine("Are you sure you want to empty your cart and start over?  Type 'y' for yes or 'n' for no.");
+      string confirmRestart = console.Readline();
+      if (confirmRestart == "y")
+      {
+        Main();
+      }
+      else if (confirmRestart == "n")
+      {
+        Order();
+      }
+      else
+      {
+        Invalid();
+        Restart();
       }
     }
 
