@@ -7,6 +7,7 @@ namespace BakeryUI
   {
     public static void Main()
     {
+      //code to empty cart
       Console.WriteLine("Welcome to Pierre's Bakery!");
       Order();
     }  
@@ -37,7 +38,7 @@ namespace BakeryUI
       }
       else
       {
-        Console.WriteLine("That is not a valid input.");
+        Invalid();
         Order();
       }
     } 
@@ -46,7 +47,7 @@ namespace BakeryUI
     {
       if (Cart is empty)
       {
-        Console.WriteLine("Your shopping cart is empty.");
+        EmptyCart();
       }
       else 
       {
@@ -57,6 +58,35 @@ namespace BakeryUI
       }
     }
 
+    public static Purchase()
+    {
+      if (car it empty)
+      {
+        EmptyCart();
+        Order();
+      }
+      else
+      {
+        Console.WriteLine("Are you sure you want to make this purchase?  Type 'y' for yes or 'n' for no.");
+        string confirmPurch = Console.ReadLine();
+        if (confirmPurch == "n")
+        {
+          Order();
+        }
+        else if (confirmPurch == "y")
+        {
+          Console.WriteLine("Your pretend bread order has been purchase with pretend money!");
+          Console.WriteLine("We hope that you enjoy filling your pretend stomach!");
+          Main();
+        }
+        else
+        {
+          Invalid();
+          Purchase();
+        }
+      }
+    }
+
     public static BreadList()
     {
       // Console.WriteLine("We currently have the following bread options...");
@@ -64,35 +94,64 @@ namespace BakeryUI
       Console.WriteLine("To add Rye bread, type 'rye'.");
       Console.WriteLine("To add Wheat bread, type 'wheat'.");
       Console.WriteLine("To add Gluten Free bread, type 'gf'.");
-      Console.WriteLine("To return to the previous menu, type 'back'.");
+      Back();
       string breadType = Console.ReadLine();
-      if (breadType == 'rye' || breadType == 'wheat' breadType == 'gf')
+      if (breadType == 'rye' || breadType == 'wheat' || breadType == 'gf')
       {
-        Console.WriteLine("How many loaves would you like?")
-        string breadCount = Console.ReadLine()
+        BreadNumber();
       }
-
-    }
-
-    public static Purchase()
-    {
-      Console.WriteLine("Are you sure you want to make this purchase?  Type 'y' for yes or 'n' for no.");
-      string confirmPurch = Console.ReadLine();
-      if (confirmPurch == "n")
+      else if (breadType == 'back')
       {
         Order();
       }
-      else if (confirmPurch == "y")
+      else 
       {
-        Console.WriteLine("Your pretend bread order has been purchase with pretend money!");
-        Console.WriteLine("We hope that you enjoy filling your pretend stomach!");
-        Main();
+        Invalid();
+        BreadList();
+      }
+    }
+
+    public static BreadNumber()
+    {
+      Console.WriteLine("How many loaves would you like?")
+      Limit10();
+      Back();
+      string breadCount = Console.ReadLine();
+      if (breadCount.All(Char.IsDigit) == true && int.Parse(breadCount) >= 1 && int.Parse(breadCount) <= 10)
+      {
+        // add bread to cart (breadCount and breadType from BreadList)
+        Console.WriteLine("{breadCount} loves of {breadType from Breadlist} have been added to your cart");
+        Order();
+      }
+      else if (breadCount == "back")
+      {
+        BreadList();
       }
       else
       {
-        Console.WriteLine("That is not a valid input.");
-        Purchase();
+        Invalid();
+        BreadNumber();
       }
-    } 
+    }
+
+    public static Invalid()
+    {
+      Console.WriteLine("That is not a valid input.");
+    }
+
+    public static Limit10()
+    {
+      Console.WriteLine("please input only whole numbers between 1 and 10");
+    }
+
+    public static EmptyCart()
+    {
+      Console.WriteLine("Your shopping cart is empty.");
+    }
+
+    public static Back()
+    {
+      Console.WriteLine("To return to the previous menu, type 'back'.");
+    }
   }
 }
