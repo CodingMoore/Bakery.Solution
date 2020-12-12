@@ -16,6 +16,14 @@ namespace Bakery.Tests
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
       Console.WriteLine(loaf1);
     }
+
+    [TestMethod]
+    public void BreadConstructor_AddToStaticList_True()
+    {
+      Bread loaf1 = new Bread("testInput");
+      Assert.AreEqual(loaf1.Name, cart[0].Name);
+      Console.WriteLine(loaf1.Name);
+    }
   }
 }
 //  Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
