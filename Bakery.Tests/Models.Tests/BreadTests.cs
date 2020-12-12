@@ -14,7 +14,6 @@ namespace Bakery.Tests
       // any necessary logic to prep for test; instantiating new classes, etc.
       Bread loaf1 = new Bread("rye");
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
-      Console.WriteLine(loaf1);
     }
 
     [TestMethod]
@@ -22,7 +21,6 @@ namespace Bakery.Tests
     {
       Bread loaf1 = new Bread("testInput");
       Assert.AreEqual(loaf1.Name, cart[0].Name);
-      Console.WriteLine(loaf1.Name);
     }
   }
 }
