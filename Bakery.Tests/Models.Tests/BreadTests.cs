@@ -13,7 +13,7 @@ namespace Bakery.Tests
     {
       // any necessary logic to prep for test; instantiating new classes, etc.
       Bread loaf1 = new Bread("rye");
-      Assert.AreEqual(typeof(int), loaf1.GetType());
+      Assert.AreEqual(typeof(Bread), loaf1.GetType());
       Console.WriteLine(loaf1);
     }
   }
