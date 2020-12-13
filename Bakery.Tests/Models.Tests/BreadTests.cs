@@ -45,6 +45,8 @@ namespace Bakery.Tests
       Bread.DisplayBreadList();
       // Bread.DisplayBreadList();
       Assert.AreEqual("Bread Name", Bread.GetBread()[0].Name);
+      Assert.AreEqual("4", Bread.GetBread()[0].Price);
+    
     }
   }
 } 
