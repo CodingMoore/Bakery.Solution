@@ -27,6 +27,14 @@ namespace Bakery.Tests
       Assert.AreEqual(loaf1.GetType(), Bread.GetBread()[1].GetType());
       
     }
+
+    [TestMethod]
+
+    public void ClearBreadCart_EmptyTheList_True()
+    {
+      Bread loaf1 = new Bread("testInput");
+      Assert.AreEqual(2, Bread.GetBread().Count);
+    }
   }
 } 
 //  Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
