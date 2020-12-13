@@ -24,7 +24,7 @@ namespace Bakery.Tests
     public void BreadConstructor_AddToStaticList_True()
     {
       Bread loaf1 = new Bread("testInput");
-      Assert.AreEqual(loaf1.GetType(), Bread.GetBread()[1].GetType());
+      Assert.AreEqual(loaf1.GetType(), Bread.GetBread()[0].GetType());
       
     }
 
@@ -33,7 +33,7 @@ namespace Bakery.Tests
     public void ClearBreadCart_EmptyTheList_True()
     {
       Bread loaf1 = new Bread("testInput");
-      Assert.AreEqual(2, Bread.GetBread().Count);
+      Assert.AreEqual(1, Bread.GetBread().Count);
     }
   }
 } 
