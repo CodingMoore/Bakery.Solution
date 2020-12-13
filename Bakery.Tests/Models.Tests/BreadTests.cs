@@ -40,12 +40,10 @@ namespace Bakery.Tests
     public void DisplayBreadList_ShowListContents_True()
     {
       Bread loaf1 = new Bread("Bread Name1");
-      Bread loaf2 = new Bread("Bread Name2");
-      Bread loaf3 = new Bread("Bread Name3");
       Bread.DisplayBreadList();
       // Bread.DisplayBreadList();
       Assert.AreEqual("Bread Name1", Bread.GetBread()[0].Name);
-      Assert.AreEqual(4, Bread.GetBread()[0].Price);
+      Assert.AreEqual(5, Bread.GetBread()[0].Price);
     
     }
   }
