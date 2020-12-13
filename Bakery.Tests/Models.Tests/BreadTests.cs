@@ -35,6 +35,12 @@ namespace Bakery.Tests
       Bread loaf1 = new Bread("testInput");
       Assert.AreEqual(1, Bread.GetBread().Count);
     }
+
+    public string DisplayBreadList_ShowListContents_True()
+    {
+      Bread loaf1 = new Bread("Bread Name");
+      Bread.DisplayBreadList();
+    }
   }
 } 
 //  Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
