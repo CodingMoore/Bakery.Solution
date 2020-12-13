@@ -20,8 +20,9 @@ namespace Bakery.Tests
     public void BreadConstructor_AddToStaticList_True()
     {
       Bread loaf1 = new Bread("testInput");
-      Assert.AreEqual(loaf1.Name, cart[0].Name);
+      Assert.AreEqual(loaf1.GetType(), Bread.GetBread().GetType());
+      
     }
   }
-}
+} 
 //  Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
