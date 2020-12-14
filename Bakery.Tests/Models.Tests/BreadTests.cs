@@ -65,7 +65,7 @@ namespace Bakery.Tests
     {
       Bread.BreadDefault();
       Bread.GetBread()[0].Quantity = 6;
-      Assert.AreEqual(1, Bread.BreadCount());
+      Assert.AreEqual(6, Bread.BreadCount());
     }
   }
 } 
