@@ -13,13 +13,12 @@ namespace Bakery.Models
 
     public int Quantity { get; set; }
     public int Price { get; private set; }
-
     public Bread(string name, int num)
     {
       Name = name;
       Quantity = num;
       Price = 5;
-      _breadCart.Add(this);
+      // _breadCart.Add(this);
     }
 
     public static void BreadDefault()

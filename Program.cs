@@ -7,7 +7,8 @@ namespace BakeryUI
   {
     // public static void Main()
     // {
-    //   //code to empty cart
+    //   BreadDefault();
+    //   PastryDefault();
     //   Console.WriteLine("Welcome to Pierre's Bakery!");
     //   Order();
     // }
