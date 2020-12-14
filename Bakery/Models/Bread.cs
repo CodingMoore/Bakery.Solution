@@ -8,11 +8,11 @@ namespace Bakery.Models
   {
     //fields are hidden
     private static List<Bread> _breadCart = new List<Bread> {};
-    // public Bread rye = new Bread("rye", 0);
+    
     public string Name { get; set; } //this is a property
 
     public int Quantity { get; set; }
-    public int Price { get; set; }
+    public int Price { get; private set; }
 
     public Bread(string name, int num)
     {
@@ -22,6 +22,15 @@ namespace Bakery.Models
       _breadCart.Add(this);
     }
 
+    public static void BreadDefault()
+    {
+      Bread rye = new Bread("rye", 0);
+      Bread wheat = new Bread("wheat", 0);
+      Bread gf = new Bread("gf", 0);
+      _breadCart.Add(rye);
+      _breadCart.Add(wheat);
+      _breadCart.Add(gf);
+    }
     public static List<Bread> GetBread()
     {
       return _breadCart;
