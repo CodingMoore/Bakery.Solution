@@ -53,6 +53,25 @@ namespace Bakery.Models
       } 
       return total;
     }
+
+    public static int BreadPrice()
+    {
+      int total = (Bread.BreadCount() * 5) - ((Bread.BreadCount() / 3) * 5);
+      return total;
+    } 
   }
 }
 
+// public static int BreadPrice()
+//     {
+//       int total = (Bread.BreadCount() * 5);
+//       if (Bread.BreadCount() % 3 == 0)
+//       {
+//         total -= (Bread.BreadCount() / 3) * 5;
+//       }
+//       else
+//       {
+//         total 
+//       }
+//       return total;
+//     }

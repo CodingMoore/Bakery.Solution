@@ -67,5 +67,15 @@ namespace Bakery.Tests
       Bread.GetBread()[0].Quantity = 6;
       Assert.AreEqual(6, Bread.BreadCount());
     }
+
+    [TestMethod]
+    public void BreadPrice_CalculateBreadSubtotal_True()
+    {
+      Bread.BreadDefault();
+      Bread.GetBread()[0].Quantity = 3;
+      Bread.GetBread()[1].Quantity = 3;
+      Bread.GetBread()[2].Quantity = 1;
+      Assert.AreEqual(10, Bread.BreadPrice());
+    }
   }
 } 
