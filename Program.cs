@@ -12,33 +12,40 @@ namespace BakeryUI
       Bread.BreadDefault();
       Pastry.PastryDefault();
       Console.WriteLine("Welcome to Pierre's Bakery!");
+      Console.WriteLine("Bread is $5 per loaf (Buy on get one FREE!)");
+      Console.WriteLine("Pastry is $2 each, or 3 for $5");
       Order();
     }
 
     public static CartReport()
     {
-      if (Cart is empty)
+      if (Bread.BreadCount == 0 && Pastry.PastryCount == 0)
       {
         EmptyCart();
       }
       else 
       {
         Console.WriteLine("Your shopping cart contains...");
-        Console.WriteLine(Cart contents);
+        Bread.DisplayBreadList();
+        Pastry.DisplayPastryList();
         Console.WriteLine("Your total comes to...");
-        Console.WriteLine(Total Cost);
+        Console.WriteLine(Bread.BreadPrice + Pastry.PastryPrice);
       }
     }
     
     public static Purchase()
     {
-      if (cart it empty)
+      if (Bread.BreadCount == 0 && Pastry.PastryCount == 0)
       {
         EmptyCart();
         Order();
       }
       else
       {
+        if (((Bread.BreadCount + 1) % 3) == 0 )
+        {
+          Console.WriteLine("The buy 2, get 1 Free sale qualifies you for a free loaf of bread!  Feel free to go back and add your free loaf of bread to your order. The free loaf must be in your cart at the time of purchase.")
+        }
         Console.WriteLine("Are you sure you want to make this purchase?  Type 'y' for yes or 'n' for no.");
         string confirmPurch = Console.ReadLine();
         if (confirmPurch == "y")
@@ -114,14 +121,14 @@ namespace BakeryUI
 
     public static BreadNumber()
     {
-      Console.WriteLine("How many loaves would you like?")
+      Console.WriteLine("How many loaves of this bread would you like in total?")
       Limit10();
       Back();
       string breadCount = Console.ReadLine();
-      if (breadCount.All(Char.IsDigit) == true && int.Parse(breadCount) >= 1 && int.Parse(breadCount) <= 10)
+      if (breadCount.All(Char.IsDigit) == true && int.Parse(breadCount) >= 0 && int.Parse(breadCount) <= 10)
       {
-        // add bread to cart (breadCount and breadType from BreadList) - add total limit logic
-        Console.WriteLine("{breadCount} loves of {breadType from Breadlist} have been added to your cart");
+        Bread.GetBread()[Bread.GetBread().FindIndex(x => x.Contains(breadType))].Quantity = int.Parse(breadCount);
+        Console.WriteLine("Your shopping cart has been updated.");
         Order();
       }
       else if (breadCount == "back")
@@ -159,14 +166,14 @@ namespace BakeryUI
 
     public static PastryNumber()
     {
-      Console.WriteLine("How many pastries would you like?")
+      Console.WriteLine("How many pastries of this type would you like in total?")
       Limit10();
       Back();
       string pastryCount = Console.ReadLine();
-      if (pastryCount.All(Char.IsDigit) == true && int.Parse(pastryCount) >= 1 && int.Parse(pastryCount) <= 10)
+      if (pastryCount.All(Char.IsDigit) == true && int.Parse(pastryCount) >= 0 && int.Parse(pastryCount) <= 10)
       {
-        // add pastry to cart (pastryCount and pastryType from PastryList) - add total limit logic
-        Console.WriteLine("{pastryCount} loves of {pastryType from Pastrylist} have been added to your cart");
+        Pastry.GetPastry()[Pastry.GetPastry().FindIndex(x => x.Contains(pastryType))].Quantity = int.Parse(pastryCount);
+        Console.WriteLine("Your shopping cart has been updated.");
         Order();
       }
       else if (pastryCount == "back")
@@ -206,7 +213,7 @@ namespace BakeryUI
 
     public static Limit10()
     {
-      Console.WriteLine("please input only whole numbers between 1 and 10");
+      Console.WriteLine("There is a limit of 10 of each item per person, per order. Please input only whole numbers between 0 and 10");
     }
 
     public static EmptyCart()

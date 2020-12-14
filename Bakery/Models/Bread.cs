@@ -38,9 +38,12 @@ namespace Bakery.Models
 
     public static void DisplayBreadList()
     {
-      foreach (Bread item in Bread._breadCart)
+      foreach (Bread element in Bread._breadCart)
       {
-        Console.Write(item.Name + " " + "$" + item.Price + ", ");
+        if (element.Quantity > 0)
+        {
+          Console.Write(element.Name + " x " + element.Quantity + ", ");
+        }
       }
     }
 
