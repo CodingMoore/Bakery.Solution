@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bakery.Models;
+using Bakery.Bread.Models;
 using System;
 using System.Collections.Generic;
 
@@ -76,6 +76,12 @@ namespace Bakery.Tests
       Bread.GetBread()[1].Quantity = 3;
       Bread.GetBread()[2].Quantity = 1;
       Assert.AreEqual(25, Bread.BreadPrice());
+    }
+    [TestMethod]
+    public void BreadIndex_FindIndexByName_True()
+    {
+      Bread.BreadDefault();
+      Assert.AreEqual(0, Bread.BreadIndex("Rye"));
     }
   }
 } 

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System;
-using Bakery.Models;
-using Pastry.Models;
+using Bakery.Bread.Models;
+using Bakery.Pastry.Models;
+using System.Linq;
 
 namespace BakeryUI
 {
@@ -17,9 +18,9 @@ namespace BakeryUI
       Order();
     }
 
-    public static CartReport()
+    public static void CartReport()
     {
-      if (Bread.BreadCount == 0 && Pastry.PastryCount == 0)
+      if (Bread.BreadCount() == 0 && Pastry.PastryCount() == 0)
       {
         EmptyCart();
       }
@@ -29,22 +30,22 @@ namespace BakeryUI
         Bread.DisplayBreadList();
         Pastry.DisplayPastryList();
         Console.WriteLine("Your total comes to...");
-        Console.WriteLine(Bread.BreadPrice + Pastry.PastryPrice);
+        Console.WriteLine(Bread.BreadPrice() + Pastry.PastryPrice());
       }
     }
     
-    public static Purchase()
+    public static void Purchase()
     {
-      if (Bread.BreadCount == 0 && Pastry.PastryCount == 0)
+      if (Bread.BreadCount() == 0 && Pastry.PastryCount() == 0)
       {
         EmptyCart();
         Order();
       }
       else
       {
-        if (((Bread.BreadCount + 1) % 3) == 0 )
+        if (((Bread.BreadCount() + 1) % 3) == 0 )
         {
-          Console.WriteLine("The buy 2, get 1 Free sale qualifies you for a free loaf of bread!  Feel free to go back and add your free loaf of bread to your order. The free loaf must be in your cart at the time of purchase.")
+          Console.WriteLine("The buy 2, get 1 Free sale qualifies you for a free loaf of bread!  Feel free to go back and add your free loaf of bread to your order. The free loaf must be in your cart at the time of purchase.");
         }
         Console.WriteLine("Are you sure you want to make this purchase?  Type 'y' for yes or 'n' for no.");
         string confirmPurch = Console.ReadLine();
@@ -66,7 +67,7 @@ namespace BakeryUI
       }
     }
 
-    public static Order()
+    public static void Order()
     {
       Console.WriteLine("To add some bread to your cart, please type 'bread'.");
       Console.WriteLine("To add some pastry to your cart, please Type 'pastry'.");
@@ -97,18 +98,18 @@ namespace BakeryUI
       }
     } 
 
-    public static BreadList()
+    public static void BreadList()
     {
       Console.WriteLine("To add Rye bread, type 'rye'.");
       Console.WriteLine("To add Wheat bread, type 'wheat'.");
       Console.WriteLine("To add Gluten Free bread, type 'gf'.");
       Back();
       string breadType = Console.ReadLine();
-      if (breadType == 'rye' || breadType == 'wheat' || breadType == 'gf')
+      if (breadType == "rye" || breadType == "wheat" || breadType == "gf")
       {
-        BreadNumber();
+        BreadNumber(breadType);
       }
-      else if (breadType == 'back')
+      else if (breadType == "back")
       {
         Order();
       }
@@ -119,15 +120,15 @@ namespace BakeryUI
       }
     }
 
-    public static BreadNumber()
+    public static void BreadNumber(string breadType)
     {
-      Console.WriteLine("How many loaves of this bread would you like in total?")
+      Console.WriteLine("How many loaves of this bread would you like in total?");
       Limit10();
       Back();
       string breadCount = Console.ReadLine();
       if (breadCount.All(Char.IsDigit) == true && int.Parse(breadCount) >= 0 && int.Parse(breadCount) <= 10)
       {
-        Bread.GetBread()[Bread.GetBread().FindIndex(x => x.Contains(breadType))].Quantity = int.Parse(breadCount);
+        Bread.GetBread()[Bread.BreadIndex(breadType)].Quantity = int.Parse(breadCount);
         Console.WriteLine("Your shopping cart has been updated.");
         Order();
       }
@@ -138,22 +139,22 @@ namespace BakeryUI
       else
       {
         Invalid();
-        BreadNumber();
+        BreadNumber(breadType);
       }
     }
 
-    public static PastryList()
+    public static void PastryList()
     {
       Console.WriteLine("To add Crossants, type 'crossant'.");
       Console.WriteLine("To add Baklava, type 'baklava'.");
       Console.WriteLine("To add Danishes, type 'danish'.");
       Back();
       string pastryType = Console.ReadLine();
-      if (pastryType == 'Crossant' || pastryType == 'baklava' || pastryType == '')
+      if (pastryType == "crossant" || pastryType == "baklava" || pastryType == "danish")
       {
-        PastryNumber();
+        PastryNumber(pastryType);
       }
-      else if (pastryType == 'back')
+      else if (pastryType == "back")
       {
         Order();
       }
@@ -164,15 +165,15 @@ namespace BakeryUI
       }
     }
 
-    public static PastryNumber()
+    public static void PastryNumber(string pastryType)
     {
-      Console.WriteLine("How many pastries of this type would you like in total?")
+      Console.WriteLine("How many pastries of this type would you like in total?");
       Limit10();
       Back();
       string pastryCount = Console.ReadLine();
       if (pastryCount.All(Char.IsDigit) == true && int.Parse(pastryCount) >= 0 && int.Parse(pastryCount) <= 10)
       {
-        Pastry.GetPastry()[Pastry.GetPastry().FindIndex(x => x.Contains(pastryType))].Quantity = int.Parse(pastryCount);
+        Pastry.GetPastry()[Pastry.PastryIndex(pastryType)].Quantity = int.Parse(pastryCount);
         Console.WriteLine("Your shopping cart has been updated.");
         Order();
       }
@@ -183,14 +184,14 @@ namespace BakeryUI
       else
       {
         Invalid();
-        PastryNumber();
+        PastryNumber(pastryType);
       }
     }
 
-    public static Restart()
+    public static void Restart()
     {
       Console.WriteLine("Are you sure you want to empty your cart and start over?  Type 'y' for yes or 'n' for no.");
-      string confirmRestart = console.Readline();
+      string confirmRestart = Console.ReadLine();
       if (confirmRestart == "y")
       {
         Main();
@@ -206,22 +207,22 @@ namespace BakeryUI
       }
     }
 
-    public static Invalid()
+    public static void Invalid()
     {
       Console.WriteLine("That is not a valid input.");
     }
 
-    public static Limit10()
+    public static void Limit10()
     {
       Console.WriteLine("There is a limit of 10 of each item per person, per order. Please input only whole numbers between 0 and 10");
     }
 
-    public static EmptyCart()
+    public static void EmptyCart()
     {
       Console.WriteLine("Your shopping cart is empty.");
     }
 
-    public static Back()
+    public static void Back()
     {
       Console.WriteLine("To return to the previous menu, type 'back'.");
     }

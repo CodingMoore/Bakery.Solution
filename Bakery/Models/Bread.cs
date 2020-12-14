@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Bakery.Models
+namespace Bakery.Bread.Models
 {
   public class Bread
   {
@@ -62,6 +62,19 @@ namespace Bakery.Models
       int total = (Bread.BreadCount() * 5) - ((Bread.BreadCount() / 3) * 5);
       return total;
     } 
+
+    public static int BreadIndex(string breadType)
+    {
+      int index = 0;
+      for (int i = 0; i < Bread._breadCart.Count; i++)
+      {
+        if (Bread._breadCart[i].Name == breadType)
+        {
+          index += i;
+        }
+      }
+        return index;
+    }
   }
 }
 
