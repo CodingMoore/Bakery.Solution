@@ -23,7 +23,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void BreadConstructor_InstantiateBreadObject_True()
     {
-      Bread loaf1 = new Bread("rye", 3);
+      Bread loaf1 = new Bread("Rye", 3);
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
     }
 
@@ -47,7 +47,7 @@ namespace Bakery.Tests
     {
       Bread.BreadDefault();
       Bread.DisplayBreadList();
-      Assert.AreEqual("rye", Bread.GetBread()[0].Name);
+      Assert.AreEqual("Rye", Bread.GetBread()[0].Name);
       Assert.AreEqual(0, Bread.GetBread()[0].Quantity);
       Assert.AreEqual(5, Bread.GetBread()[0].Price);
     }

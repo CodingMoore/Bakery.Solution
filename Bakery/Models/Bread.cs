@@ -19,9 +19,9 @@ namespace Bakery.Models
 
     public static void BreadDefault()
     {
-      Bread rye = new Bread("rye", 0);
-      Bread wheat = new Bread("wheat", 0);
-      Bread gf = new Bread("gf", 0);
+      Bread rye = new Bread("Rye", 0);
+      Bread wheat = new Bread("Wheat", 0);
+      Bread gf = new Bread("Gluten Free", 0);
       _breadCart.Add(rye);
       _breadCart.Add(wheat);
       _breadCart.Add(gf);

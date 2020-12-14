@@ -19,9 +19,9 @@ namespace Bakery.Models
 
     public static void PastryDefault()
     {
-      Pastry crossant = new Pastry("crossant", 0);
-      Pastry baklava = new Pastry("baklava", 0);
-      Pastry danish = new Pastry("danish", 0);
+      Pastry crossant = new Pastry("Crossant", 0);
+      Pastry baklava = new Pastry("Baklava", 0);
+      Pastry danish = new Pastry("Danish", 0);
       _pastryCart.Add(crossant);
       _pastryCart.Add(baklava);
       _pastryCart.Add(danish);
