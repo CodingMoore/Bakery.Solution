@@ -10,16 +10,20 @@ namespace BakeryUI
   {
     public static void Main()
     {
+      Bread.ClearBreadCart();
+      Pastry.ClearPastryCart();
       Bread.BreadDefault();
       Pastry.PastryDefault();
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("Welcome to Pierre's Bakery!");
-      Console.WriteLine("Bread is $5 per loaf (Buy on get one FREE!)");
-      Console.WriteLine("Pastry is $2 each, or 3 for $5");
+      Console.WriteLine("Bread is $5 per loaf. (Buy on get one FREE!)");
+      Console.WriteLine("Pastry is $2 each, or 3 for $5.");
       Order();
     }
 
     public static void CartReport()
     {
+      Console.WriteLine("---------------------------------------------");
       if (Bread.BreadCount() == 0 && Pastry.PastryCount() == 0)
       {
         EmptyCart();
@@ -30,12 +34,13 @@ namespace BakeryUI
         Bread.DisplayBreadList();
         Pastry.DisplayPastryList();
         Console.WriteLine("Your total comes to...");
-        Console.WriteLine(Bread.BreadPrice() + Pastry.PastryPrice());
+        Console.WriteLine("$" + (Bread.BreadPrice() + Pastry.PastryPrice()));
       }
     }
     
     public static void Purchase()
     {
+      Console.WriteLine("---------------------------------------------");
       if (Bread.BreadCount() == 0 && Pastry.PastryCount() == 0)
       {
         EmptyCart();
@@ -51,8 +56,11 @@ namespace BakeryUI
         string confirmPurch = Console.ReadLine();
         if (confirmPurch == "y")
         {
+          Console.WriteLine("---------------------------------------------");
+          Console.WriteLine("---------------------------------------------");
           Console.WriteLine("Your pretend bread order has been purchase with pretend money!");
           Console.WriteLine("We hope that you enjoy filling your pretend stomach!");
+          Console.WriteLine("---------------------------------------------");
           Main();
         }
         else if (confirmPurch == "n")
@@ -69,6 +77,7 @@ namespace BakeryUI
 
     public static void Order()
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("To add some bread to your cart, please type 'bread'.");
       Console.WriteLine("To add some pastry to your cart, please Type 'pastry'.");
       Console.WriteLine("To puchase the items in your cart, please type 'purchase'.");
@@ -83,7 +92,7 @@ namespace BakeryUI
       {
         PastryList();
       }
-      else if (custInput == "puchase")
+      else if (custInput == "purchase")
       {
         Purchase();
       }
@@ -100,6 +109,7 @@ namespace BakeryUI
 
     public static void BreadList()
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("To add Rye bread, type 'rye'.");
       Console.WriteLine("To add Wheat bread, type 'wheat'.");
       Console.WriteLine("To add Gluten Free bread, type 'gf'.");
@@ -122,6 +132,7 @@ namespace BakeryUI
 
     public static void BreadNumber(string breadType)
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("How many loaves of this bread would you like in total?");
       Limit10();
       Back();
@@ -145,6 +156,7 @@ namespace BakeryUI
 
     public static void PastryList()
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("To add Crossants, type 'crossant'.");
       Console.WriteLine("To add Baklava, type 'baklava'.");
       Console.WriteLine("To add Danishes, type 'danish'.");
@@ -167,6 +179,7 @@ namespace BakeryUI
 
     public static void PastryNumber(string pastryType)
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("How many pastries of this type would you like in total?");
       Limit10();
       Back();
@@ -190,6 +203,7 @@ namespace BakeryUI
 
     public static void Restart()
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("Are you sure you want to empty your cart and start over?  Type 'y' for yes or 'n' for no.");
       string confirmRestart = Console.ReadLine();
       if (confirmRestart == "y")
@@ -209,6 +223,7 @@ namespace BakeryUI
 
     public static void Invalid()
     {
+      Console.WriteLine("---------------------------------------------");
       Console.WriteLine("That is not a valid input.");
     }
 

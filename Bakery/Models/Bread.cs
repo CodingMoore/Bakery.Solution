@@ -19,9 +19,9 @@ namespace Bakery.Bread.Models
 
     public static void BreadDefault()
     {
-      Bread rye = new Bread("Rye", 0);
-      Bread wheat = new Bread("Wheat", 0);
-      Bread gf = new Bread("Gluten Free", 0);
+      Bread rye = new Bread("rye", 0);
+      Bread wheat = new Bread("wheat", 0);
+      Bread gf = new Bread("gf", 0);
       _breadCart.Add(rye);
       _breadCart.Add(wheat);
       _breadCart.Add(gf);
@@ -38,11 +38,11 @@ namespace Bakery.Bread.Models
 
     public static void DisplayBreadList()
     {
-      foreach (Bread element in Bread._breadCart)
+      for (int i = 0; i < Bread._breadCart.Count; i++)
       {
-        if (element.Quantity > 0)
+        if (Bread._breadCart[i].Quantity > 0)
         {
-          Console.Write(element.Name + " x " + element.Quantity + ", ");
+          Console.Write(Bread._breadCart[i].Name + " x " + Bread._breadCart[i].Quantity + ", ");
         }
       }
     }
@@ -73,8 +73,7 @@ namespace Bakery.Bread.Models
           index += i;
         }
       }
-        return index;
+      return index;
     }
   }
 }
-
