@@ -6,54 +6,54 @@ using System.Collections.Generic;
 namespace Bakery.Tests
 {
   [TestClass]
-  public class BreadTests : IDisposable
+  public class PastryTests : IDisposable
   {
     public void Dispose()
     {
-      Bread.ClearBreadCart();
+      Pastry.ClearPastryCart();
     }
 
     [TestMethod]
-    public void BreadConstructor_InstantiateBreadObject_True()
+    public void PastryConstructor_InstantiatePastryObject_True()
     {
-      Bread loaf1 = new Bread("rye", 3);
-      Assert.AreEqual(typeof(Bread), loaf1.GetType());
+      Pastry loaf1 = new Pastry("crossant", 3);
+      Assert.AreEqual(typeof(Pastry), loaf1.GetType());
     }
 
     [TestMethod]
-    public void DisplayBreadList_ShowListContents_True()
+    public void DisplayPastryList_ShowListContents_True()
     {
-      Bread.BreadDefault();
-      Bread.DisplayBreadList();
-      Assert.AreEqual("rye", Bread.GetBread()[0].Name);
-      Assert.AreEqual(0, Bread.GetBread()[0].Quantity);
-      Assert.AreEqual(5, Bread.GetBread()[0].Price);
+      Pastry.PastryDefault();
+      Pastry.DisplayPastryList();
+      Assert.AreEqual("crossant", Pastry.GetPastry()[0].Name);
+      Assert.AreEqual(0, Pastry.GetPastry()[0].Quantity);
+      Assert.AreEqual(5, Pastry.GetPastry()[0].Price);
     }
 
     [TestMethod]
-    public void UpdateBread_ChangeListObjectValues_True()
+    public void UpdatePastry_ChangeListObjectValues_True()
     {
-      Bread.BreadDefault();
-      Bread.GetBread()[0].Quantity = 3;
-      Assert.AreEqual(3 , Bread.GetBread()[0].Quantity);
+      Pastry.PastryDefault();
+      Pastry.GetPastry()[0].Quantity = 3;
+      Assert.AreEqual(3 , Pastry.GetPastry()[0].Quantity);
     }
 
     [TestMethod]
-    public void BreadCount_CountNumberOfTotalLoaves_True()
+    public void PastryCount_CountNumberOfTotalLoaves_True()
     {
-      Bread.BreadDefault();
-      Bread.GetBread()[0].Quantity = 6;
-      Assert.AreEqual(6, Bread.BreadCount());
+      Pastry.PastryDefault();
+      Pastry.GetPastry()[0].Quantity = 6;
+      Assert.AreEqual(6, Pastry.PastryCount());
     }
 
     [TestMethod]
-    public void BreadPrice_CalculateBreadSubtotal_True()
+    public void PastryPrice_CalculatePastrySubtotal_True()
     {
-      Bread.BreadDefault();
-      Bread.GetBread()[0].Quantity = 3;
-      Bread.GetBread()[1].Quantity = 3;
-      Bread.GetBread()[2].Quantity = 1;
-      Assert.AreEqual(25, Bread.BreadPrice());
+      Pastry.PastryDefault();
+      Pastry.GetPastry()[0].Quantity = 3;
+      Pastry.GetPastry()[1].Quantity = 3;
+      Pastry.GetPastry()[2].Quantity = 1;
+      Assert.AreEqual(11, Pastry.PastryPrice());
     }
   }
 } 
