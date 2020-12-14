@@ -13,6 +13,12 @@ namespace Bakery.Tests
       Bread.ClearBreadCart();
     }
     [TestMethod]
+
+    // public void BreadCart_CreateStaticCart_True()
+    // {
+    //   Console.WriteLine(Bread.GetBread()[0].Name);
+    //   Assert.AreEqual("rye", "ry");
+    // }
     public void BreadConstructor_InstantiateBreadObject_True()
     {
       // any necessary logic to prep for test; instantiating new classes, etc.
