@@ -22,14 +22,14 @@ namespace Bakery.Tests
     public void BreadConstructor_InstantiateBreadObject_True()
     {
       // any necessary logic to prep for test; instantiating new classes, etc.
-      Bread loaf1 = new Bread("rye");
+      Bread loaf1 = new Bread("rye", 3);
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
     }
 
     [TestMethod]
     public void BreadConstructor_AddToStaticList_True()
     {
-      Bread loaf1 = new Bread("testInput");
+      Bread loaf1 = new Bread("testInput", 3);
       Assert.AreEqual(loaf1.GetType(), Bread.GetBread()[0].GetType());
       
     }
@@ -38,14 +38,14 @@ namespace Bakery.Tests
 
     public void ClearBreadCart_EmptyTheList_True()
     {
-      Bread loaf1 = new Bread("testInput");
+      Bread loaf1 = new Bread("testInput", 3);
       Assert.AreEqual(1, Bread.GetBread().Count);
     }
 
     [TestMethod]
     public void DisplayBreadList_ShowListContents_True()
     {
-      Bread loaf1 = new Bread("Bread Name1");
+      Bread loaf1 = new Bread("Bread Name1", 3);
       Bread.DisplayBreadList();
       Assert.AreEqual("Bread Name1", Bread.GetBread()[0].Name);
       Assert.AreEqual(5, Bread.GetBread()[0].Price);
