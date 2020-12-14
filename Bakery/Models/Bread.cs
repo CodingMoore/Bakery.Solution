@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using System;
-//using System.Collections.Generic; -- use for lists
 
 namespace Bakery.Models
 {
   public class Bread
   {
-    //fields are hidden
     private static List<Bread> _breadCart = new List<Bread> {};
     
-    public string Name { get; set; } //this is a property
-
+    public string Name { get; set; }
     public int Quantity { get; set; }
     public int Price { get; private set; }
     public Bread(string name, int num)
@@ -18,7 +15,6 @@ namespace Bakery.Models
       Name = name;
       Quantity = num;
       Price = 5;
-      // _breadCart.Add(this);
     }
 
     public static void BreadDefault()
@@ -42,10 +38,20 @@ namespace Bakery.Models
 
     public static void DisplayBreadList()
     {
-      foreach (Bread thingy in Bread._breadCart)
+      foreach (Bread item in Bread._breadCart)
       {
-        Console.Write(thingy.Name + " " + "$" + thingy.Price + ", ");
+        Console.Write(item.Name + " " + "$" + item.Price + ", ");
       }
+    }
+
+    public static int BreadCount()
+    {
+      int total = 0;
+      for (int i = 0; i < Bread._breadCart.Count; i++)
+      {
+        total += Bread._breadCart[i].Quantity;
+      } 
+      return total;
     }
   }
 }

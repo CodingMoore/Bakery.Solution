@@ -23,7 +23,6 @@ namespace Bakery.Tests
     [TestMethod]
     public void BreadConstructor_InstantiateBreadObject_True()
     {
-      // any necessary logic to prep for test; instantiating new classes, etc.
       Bread loaf1 = new Bread("rye", 3);
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
     }
@@ -46,7 +45,6 @@ namespace Bakery.Tests
     [TestMethod]
     public void DisplayBreadList_ShowListContents_True()
     {
-      // Bread loaf1 = new Bread("Bread Name1", 3);
       Bread.BreadDefault();
       Bread.DisplayBreadList();
       Assert.AreEqual("rye", Bread.GetBread()[0].Name);
@@ -60,6 +58,14 @@ namespace Bakery.Tests
       Bread.BreadDefault();
       Bread.GetBread()[0].Quantity = 3;
       Assert.AreEqual(3 , Bread.GetBread()[0].Quantity);
+    }
+
+    [TestMethod]
+    public void BreadCount_CountNumberOfTotalLoaves_True()
+    {
+      Bread.BreadDefault();
+      Bread.GetBread()[0].Quantity = 6;
+      Assert.AreEqual(1, Bread.BreadCount());
     }
   }
 } 
