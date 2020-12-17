@@ -53,7 +53,7 @@ namespace Bakery.Tests
       Pastry.GetPastry()[0].Quantity = 1;
       Pastry.GetPastry()[1].Quantity = 1;
       Pastry.GetPastry()[2].Quantity = 1;
-      Assert.AreEqual(6, Pastry.PastryPrice());
+      Assert.AreEqual(5, Pastry.PastryPrice());
     }
 
     [TestMethod]
