@@ -83,14 +83,14 @@ namespace Bakery.Tests
     {
       Bread.BreadDefault();
       Bread.GetBread()[0].Quantity = 1;
-      Assert.AreEqual(4, Bread.BreadPrice());
+      Assert.AreEqual(5, Bread.BreadPrice());
     }
 
     [TestMethod]
     public void BreadIndex_FindIndexByName_True()
     {
       Bread.BreadDefault();
-      Assert.AreEqual(0, Bread.BreadIndex("Rye"));
+      Assert.AreEqual(0, Bread.BreadIndex("rye"));
     }
   }
 } 
