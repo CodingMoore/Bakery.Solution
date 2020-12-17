@@ -30,7 +30,7 @@ https://dotnet.microsoft.com/download
 
     The program should launch in your console/terminal.
 
-**Option 3** (via git console/terminal)
+**Option 2** (via git console/terminal)
 1) Open your Git enabled terminal/console and navigate to a directory that you wish to download this project to.
 2) Type the following line of code into your terminal/console to automatically download the project to your current direcory and hit return/enter
 
