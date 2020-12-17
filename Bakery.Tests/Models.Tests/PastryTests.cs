@@ -69,7 +69,7 @@ namespace Bakery.Tests
     public void PastryIndex_FindIndexByName_True()
     {
       Pastry.PastryDefault();
-      Assert.AreEqual(1, Pastry.PastryIndex("crossant"));
+      Assert.AreEqual(0, Pastry.PastryIndex("crossant"));
     }
   }
 } 
