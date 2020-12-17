@@ -47,6 +47,16 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
+    public void PastryPrice_CalculatePastrySubtotalForMultipleOf3_True()
+    {
+      Pastry.PastryDefault();
+      Pastry.GetPastry()[0].Quantity = 1;
+      Pastry.GetPastry()[1].Quantity = 1;
+      Pastry.GetPastry()[2].Quantity = 1;
+      Assert.AreEqual(6, Pastry.PastryPrice());
+    }
+
+    [TestMethod]
     public void PastryPrice_CalculatePastrySubtotalForSinglePastry_True()
     {
       Pastry.PastryDefault();
