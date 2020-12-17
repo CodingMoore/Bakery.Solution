@@ -75,7 +75,7 @@ namespace Bakery.Tests
       Bread.GetBread()[0].Quantity = 3;
       Bread.GetBread()[1].Quantity = 3;
       Bread.GetBread()[2].Quantity = 3;
-      Assert.AreEqual(25, Bread.BreadPrice());
+      Assert.AreEqual(30, Bread.BreadPrice());
     }
 
     [TestMethod]
