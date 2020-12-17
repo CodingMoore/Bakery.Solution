@@ -52,7 +52,7 @@ namespace Bakery.Tests
       Pastry.PastryDefault();
       Pastry.GetPastry()[0].Quantity = 1;
       
-      Assert.AreEqual(5, Pastry.PastryPrice());
+      Assert.AreEqual(2, Pastry.PastryPrice());
     }
   }
 } 
