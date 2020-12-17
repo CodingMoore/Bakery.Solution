@@ -47,13 +47,12 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
-    public void PastryPrice_CalculatePastrySubtotal_True()
+    public void PastryPrice_CalculatePastrySubtotalForSinglePastry_True()
     {
       Pastry.PastryDefault();
-      Pastry.GetPastry()[0].Quantity = 3;
-      Pastry.GetPastry()[1].Quantity = 3;
-      Pastry.GetPastry()[2].Quantity = 1;
-      Assert.AreEqual(12, Pastry.PastryPrice());
+      Pastry.GetPastry()[0].Quantity = 1;
+      
+      Assert.AreEqual(5, Pastry.PastryPrice());
     }
   }
 } 
