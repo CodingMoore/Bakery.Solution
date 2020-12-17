@@ -1,6 +1,6 @@
 # **bakery.Solution**
 Project Initiated: 2020-12-11<br>
-Updated: 2020-12-13
+Updated: 2020-12-16
 ## **Project Description**
 This project is a console-based user interface for purchasing various baked goods.  When the program prject is initiated, the user is greeted and offerd several menu choices.  The user is free to navigate the menus and update their shopping cart with the goods that they wish to purchase.
 
