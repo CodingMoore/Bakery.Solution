@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bakery.Bread.Models;
+using Bakery.Models;
 using System;
 using System.Collections.Generic;
 
@@ -23,7 +23,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void BreadConstructor_InstantiateBreadObject_True()
     {
-      Bread loaf1 = new Bread("Rye", 3);
+      Bread loaf1 = new Bread("rye", 3);
       Assert.AreEqual(typeof(Bread), loaf1.GetType());
     }
 
@@ -47,7 +47,7 @@ namespace Bakery.Tests
     {
       Bread.BreadDefault();
       Bread.DisplayBreadList();
-      Assert.AreEqual("Rye", Bread.GetBread()[0].Name);
+      Assert.AreEqual("rye", Bread.GetBread()[0].Name);
       Assert.AreEqual(0, Bread.GetBread()[0].Quantity);
       Assert.AreEqual(5, Bread.GetBread()[0].Price);
     }
@@ -69,7 +69,7 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
-    public void BreadPrice_CalculateBreadSubtotal_True()
+    public void BreadPrice_CalculateBreadSubtotalForMultipleOf3_True()
     {
       Bread.BreadDefault();
       Bread.GetBread()[0].Quantity = 3;
@@ -77,6 +77,15 @@ namespace Bakery.Tests
       Bread.GetBread()[2].Quantity = 1;
       Assert.AreEqual(25, Bread.BreadPrice());
     }
+
+    [TestMethod]
+    public void BreadPrice_CalculateBreadSubtotalForSingleLoaf_True()
+    {
+      Bread.BreadDefault();
+      Bread.GetBread()[0].Quantity = 1;
+      Assert.AreEqual(4, Bread.BreadPrice());
+    }
+
     [TestMethod]
     public void BreadIndex_FindIndexByName_True()
     {

@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bakery.Pastry.Models;
+using Bakery.Models;
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +16,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void PastryConstructor_InstantiatePastryObject_True()
     {
-      Pastry loaf1 = new Pastry("Crossant", 3);
+      Pastry loaf1 = new Pastry("crossant", 3);
       Assert.AreEqual(typeof(Pastry), loaf1.GetType());
     }
 
@@ -25,7 +25,7 @@ namespace Bakery.Tests
     {
       Pastry.PastryDefault();
       Pastry.DisplayPastryList();
-      Assert.AreEqual("Crossant", Pastry.GetPastry()[0].Name);
+      Assert.AreEqual("crossant", Pastry.GetPastry()[0].Name);
       Assert.AreEqual(0, Pastry.GetPastry()[0].Quantity);
       Assert.AreEqual(5, Pastry.GetPastry()[0].Price);
     }

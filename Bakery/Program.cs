@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System;
-using Bakery.Bread.Models;
-using Bakery.Pastry.Models;
+using Bakery.Models;
 using System.Linq;
 
 namespace BakeryUI
